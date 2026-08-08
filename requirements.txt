@@ -1,0 +1,6 @@
+Flask
+requests
+feedparser
+python-dotenv
+APScheduler
+google-genai
