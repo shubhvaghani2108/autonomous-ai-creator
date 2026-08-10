@@ -4,3 +4,4 @@ feedparser
 python-dotenv
 APScheduler
 google-genai
+gunicorn

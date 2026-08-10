@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 
 from api.routes import api
@@ -18,9 +19,9 @@ app = create_app()
 
 
 if __name__ == "__main__":
+    port = int(os.getenv("PORT", "5001"))
     app.run(
         host="0.0.0.0",
-        port=5001,
-        debug=False,
-        use_reloader=False
+        port=port,
+        debug=False
     )
