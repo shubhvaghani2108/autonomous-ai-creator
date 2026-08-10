@@ -63,6 +63,10 @@ def publish_selected_topic(agent_id, selected_result):
             "error": f"Writer FAILED: {writer_result.get('error', 'Unknown writer error')}"
         }
 
+    import logging
+    logger = logging.getLogger("autonomous_scheduler")
+    logger.info("[AUTONOMOUS] Writer complete")
+
     text = writer_result.get("text")
     rationale = writer_result.get("rationale")
     raw_sources = writer_result.get("sources")
@@ -114,6 +118,8 @@ def publish_selected_topic(agent_id, selected_result):
         score=selected_result.get("score", 0),
         reason=selected_result.get("reason", "")
     )
+
+    logger.info("[AUTONOMOUS] Publisher complete")
 
     return {
         "success": True,

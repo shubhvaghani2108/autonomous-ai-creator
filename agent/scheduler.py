@@ -74,6 +74,7 @@ def run_agent_cycle(agent_id):
     try:
         topics = discover_topics()
         logger.info(f"[AUTONOMOUS] Discovered {len(topics)} topics")
+        logger.info("[AUTONOMOUS] Discovery complete")
 
         known_count = 0
         rejected_count = 0
@@ -121,7 +122,7 @@ def run_agent_cycle(agent_id):
             best_topic = best_candidate.get("topic", {})
             best_title = best_topic.get("title", "")
 
-            logger.info(f"[AUTONOMOUS] Selected: {safe_text(best_title)}")
+            logger.info(f"[AUTONOMOUS] Selected topic: {safe_text(best_title)}")
             logger.info(f"[AUTONOMOUS] Publishing: {safe_text(best_title)}")
 
             # 5. Call publisher
